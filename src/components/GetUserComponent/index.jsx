@@ -5,16 +5,19 @@ function GetUserComponent( { setUser,setIsLoggedIn } ){
     const [ userInput, setUserInput ] = useState("")
 
     function HandleLogin(userInput){
-        setUser(userInput)
-        setIsLoggedIn(true)
+        if(userInput!==""){
+            setUser(userInput)
+            setIsLoggedIn(true)
+        }
     }
     
     return (
         <>
-        <div>
+        <div className="card">
             <input
                 type="text"
                 value={userInput}
+                placeholder="Digite o seu nome"
                 onChange={(event) => setUserInput(event.target.value)}
             />
             <button
